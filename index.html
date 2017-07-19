@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Thirukkural</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"><h1>திருக்குறள்</h1></div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-toggleable-md navbar-light navcustom">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"></a>
+
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> <span></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-github" aria-hidden="true"></i> <span></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-bug" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section>
+  <div class="container">
+    <div class="row" id="index">
+      <h6 class="col-12 text-center">Hover text to view Transliteration</h6>
+      <!-- <div>FIRST PAAL</div> -->
+
+    </div>
+  </div>
+    
+  </section>
+    
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      var index = document.getElementById('index');
+
+      var requestURL = 'db/detail.json';
+      var request = new XMLHttpRequest();
+      request.open('GET', requestURL);
+      request.responseType = 'json';
+      request.send();
+
+      request.onload = function() {
+        var details = request.response;
+        populateHeader(details);
+      }
+
+      function populateHeader(jsonObj) {
+        var paal = jsonObj[0].section.detail;
+        var z=0;
+        for (var h = 0; h < paal.length; h++) {
+          
+        // var paal_head = document.createElement('div');
+        //     paal_head.setAttribute("class", "col-4");
+        //     paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
+
+        var list = document.createElement('div');
+            list.setAttribute("class", "list-group col-4");
+        
+        var arathu = jsonObj[0].section.detail[h].chapterGroup.detail;
+        
+
+        for (var i = 0; i < arathu.length; i++) {
+          var athigaram = jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail;
+          for (var j = 0; j < athigaram.length; j++) {
+        z++;
+        var item = document.createElement('a');
+            item.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start");
+            item.setAttribute("href", "?"+z);
+
+        var column = document.createElement('div');
+            column.setAttribute("class", "d-flex w-100 justify-content-between");
+
+        var column_head = document.createElement('h6');
+            column_head.setAttribute("class", "mb-1");
+            column_head.setAttribute("data-toggle", "tooltip");
+            column_head.setAttribute("data-placement", "top");
+            column_head.setAttribute("title", jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].transliteration);
+
+        var iyal = document.createElement('small');
+            iyal.setAttribute("data-toggle", "tooltip");
+            iyal.setAttribute("data-placement", "top");
+            iyal.setAttribute("title", jsonObj[0].section.detail[h].chapterGroup.detail[i].transliteration + "<br>" + jsonObj[0].section.detail[h].chapterGroup.detail[i].translation);
+
+        var trans_head = document.createElement('small');
+            trans_head.setAttribute("class", "mb-1");
+
+        var trans_iyal = document.createElement('small');
+            
+
+          
+        // Set its contents:
+        column_head.appendChild(document.createTextNode(z + ". " +jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].name));
+        iyal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].name));
+        trans_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].translation));
+        trans_iyal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].translation));
+
+        // Add it to the list:
+        column.appendChild(column_head);
+        column.appendChild(iyal);
+        item.appendChild(column);
+        item.appendChild(trans_head);
+        // list.appendChild(paal_head);
+        list.appendChild(item);
+        // list.appendChild(paal_head);
+        index.appendChild(list);
+          }
+        }
+         // return list;
+       }
+      }
+    </script>
+    <script type="text/javascript">
+      $(function(){
+        $('[data-toggle="tooltip"]').tooltip({html: true});
+      });
+    </script>
+  </body>
+</html>
