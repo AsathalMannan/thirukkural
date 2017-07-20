@@ -60,11 +60,20 @@ section h6{
 	font-weight: 600;
 }
 
+footer{
+	width: 100%;
+	height: 5em;
+	background: #333;
+	color: white;
+}
+
+
 .translit{
 	padding-top: 0px !important;
 	margin-top: 0px !important;
 	font-size: 14px;
 }
+
 
 .card > .card-block > .row > .col_left > .kural{
 	font-weight: 600;

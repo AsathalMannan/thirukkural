@@ -36,7 +36,7 @@
           <a class="nav-link" href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> <span></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-github" aria-hidden="true"></i> <span></span></a>
+          <a class="nav-link" href="https://github.com/AsathalMannan/thirukkural"><i class="fa fa-github" aria-hidden="true"></i> <span></span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
@@ -53,11 +53,21 @@
     <div class="row" id="index">
       <h6 class="col-12 text-center">Hover text to view Transliteration</h6>
       <!-- <div>FIRST PAAL</div> -->
-
+    </div>
+    <div class="row" id="index2">
+      
     </div>
   </div>
     
   </section>
+
+<!--   <footer>
+    <div class="container">
+      <div class="row">
+        
+      </div>
+    </div>
+  </footer> -->
     
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -67,6 +77,7 @@
 
     <script type="text/javascript">
       var index = document.getElementById('index');
+      var index2 = document.getElementById('index2');
 
       var requestURL = 'db/detail.json';
       var request = new XMLHttpRequest();
@@ -83,13 +94,29 @@
         var paal = jsonObj[0].section.detail;
         var z=0;
         for (var h = 0; h < paal.length; h++) {
+
+        var paal_head = document.createElement('a');
+            paal_head.setAttribute("class", "text-center col-4 paal-head");
+            paal_head.setAttribute("data-toggle", "collapse");
+            paal_head.setAttribute("href", "#id"+h);
+            paal_head.setAttribute("aria-expanded", "false");
+            paal_head.setAttribute("aria-controls", "id"+h);
+        paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
+
           
         // var paal_head = document.createElement('div');
         //     paal_head.setAttribute("class", "col-4");
         //     paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
+        var extra = document.createElement('div');
+            extra.setAttribute("class", "col-4");
+
+        var collap = document.createElement('div');
+            collap.setAttribute("class", "collapse show col-auto");
+            collap.setAttribute("id", "id"+h);
 
         var list = document.createElement('div');
-            list.setAttribute("class", "list-group col-4");
+            list.setAttribute("class", "list-group col-auto");
+            // list.setAttribute("id", "id"+h);
         
         var arathu = jsonObj[0].section.detail[h].chapterGroup.detail;
         
@@ -126,32 +153,6 @@
             trans_head.setAttribute("class", "mb-1");
 
         var trans_iyal = document.createElement('small');
-
-        // var hform = document.createElement('form');
-            // hform.setAttribute("action", "athigaram.html");
-            // hform.setAttribute("method", "get");
-            // hform.setAttribute("id", "athi"+z);
-        // var hinput_h = document.createElement('input');
-        //     hinput_h.setAttribute("type", "hidden");
-        //     hinput_h.setAttribute("id", "id"+h);
-        // var hinput_i = document.createElement('input');
-        //     hinput_i.setAttribute("type", "hidden");
-        //     hinput_i.setAttribute("id", "id"+i);
-        // var hinput_j = document.createElement('input');
-        //     hinput_j.setAttribute("type", "hidden");
-        //     hinput_j.setAttribute("id", "id"+j);
-        // var hinput_stk = document.createElement('input');
-        //     hinput_stk.setAttribute("type", "hidden");
-        //     hinput_h.setAttribute("id", "id"+stk);
-        // var hinput_enk = document.createElement('input');
-        //     hinput_enk.setAttribute("type", "hidden");
-        //     hinput_enk.setAttribute("id", "id"+enk);
-        // var hinput_btn = document.createElement('button');
-        //     hinput_btn.setAttribute("type", "hidden");
-        //     hinput_btn.setAttribute("type", "hidden");
-
-            
-
           
         // Set its contents:
         column_head.appendChild(document.createTextNode(z + ". " +jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].name));
@@ -159,18 +160,6 @@
         trans_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].translation));
         trans_iyal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].translation));
 
-        // hinput_h.appendChild(document.createTextNode(h));
-        // hinput_i.appendChild(document.createTextNode(i));
-        // hinput_j.appendChild(document.createTextNode(j));
-        // hinput_stk.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].start));
-        // hinput_enk.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].end));
-
-        // hform.appendChild(hinput_h);
-        // hform.appendChild(hinput_i);
-        // hform.appendChild(hinput_j);
-        // hform.appendChild(hinput_stk);
-        // hform.appendChild(hinput_enk);
-        // item.appendChild(hform);
         // Add it to the list:
         column.appendChild(column_head);
         column.appendChild(iyal);
@@ -178,8 +167,10 @@
         item.appendChild(trans_head);
         // list.appendChild(paal_head);
         list.appendChild(item);
-        // list.appendChild(paal_head);
-        index.appendChild(list);
+        collap.appendChild(list);
+        index.appendChild(paal_head);
+        extra.appendChild(collap);
+        index2.appendChild(extra);
           }
         }
          // return list;
@@ -188,10 +179,6 @@
     </script>
     <script type="text/javascript">
       function postvar(v1,v2,v3,v4,v5){
-        // var temp = formid;
-        // alert(temp);
-        // $("#"+formid).submit();
-        // var m = document.getElementById('id'+).value,
         url = 'athigaram.html?h=' + encodeURIComponent(v1) + '&i=' + encodeURIComponent(v2) + '&j=' + encodeURIComponent(v3) + '&stk=' + encodeURIComponent(v4) + '&enk=' + encodeURIComponent(v5);
 
     document.location.href = url;
