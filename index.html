@@ -98,9 +98,15 @@
           var athigaram = jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail;
           for (var j = 0; j < athigaram.length; j++) {
         z++;
+
+        var stk = jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].start;
+        var enk = jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].end;
+
+        var dummy = "postvar('"+h+"','"+i+"','"+j+"','"+stk+"','"+enk+"');";
         var item = document.createElement('a');
             item.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start");
-            item.setAttribute("href", "?"+z);
+            item.setAttribute("onClick", dummy);
+            // item.setAttribute("href", "javascript:void(0)");
 
         var column = document.createElement('div');
             column.setAttribute("class", "d-flex w-100 justify-content-between");
@@ -120,6 +126,30 @@
             trans_head.setAttribute("class", "mb-1");
 
         var trans_iyal = document.createElement('small');
+
+        // var hform = document.createElement('form');
+            // hform.setAttribute("action", "athigaram.html");
+            // hform.setAttribute("method", "get");
+            // hform.setAttribute("id", "athi"+z);
+        // var hinput_h = document.createElement('input');
+        //     hinput_h.setAttribute("type", "hidden");
+        //     hinput_h.setAttribute("id", "id"+h);
+        // var hinput_i = document.createElement('input');
+        //     hinput_i.setAttribute("type", "hidden");
+        //     hinput_i.setAttribute("id", "id"+i);
+        // var hinput_j = document.createElement('input');
+        //     hinput_j.setAttribute("type", "hidden");
+        //     hinput_j.setAttribute("id", "id"+j);
+        // var hinput_stk = document.createElement('input');
+        //     hinput_stk.setAttribute("type", "hidden");
+        //     hinput_h.setAttribute("id", "id"+stk);
+        // var hinput_enk = document.createElement('input');
+        //     hinput_enk.setAttribute("type", "hidden");
+        //     hinput_enk.setAttribute("id", "id"+enk);
+        // var hinput_btn = document.createElement('button');
+        //     hinput_btn.setAttribute("type", "hidden");
+        //     hinput_btn.setAttribute("type", "hidden");
+
             
 
           
@@ -129,6 +159,18 @@
         trans_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].translation));
         trans_iyal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].translation));
 
+        // hinput_h.appendChild(document.createTextNode(h));
+        // hinput_i.appendChild(document.createTextNode(i));
+        // hinput_j.appendChild(document.createTextNode(j));
+        // hinput_stk.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].start));
+        // hinput_enk.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].end));
+
+        // hform.appendChild(hinput_h);
+        // hform.appendChild(hinput_i);
+        // hform.appendChild(hinput_j);
+        // hform.appendChild(hinput_stk);
+        // hform.appendChild(hinput_enk);
+        // item.appendChild(hform);
         // Add it to the list:
         column.appendChild(column_head);
         column.appendChild(iyal);
@@ -145,8 +187,25 @@
       }
     </script>
     <script type="text/javascript">
+      function postvar(v1,v2,v3,v4,v5){
+        // var temp = formid;
+        // alert(temp);
+        // $("#"+formid).submit();
+        // var m = document.getElementById('id'+).value,
+        url = 'athigaram.html?h=' + encodeURIComponent(v1) + '&i=' + encodeURIComponent(v2) + '&j=' + encodeURIComponent(v3) + '&stk=' + encodeURIComponent(v4) + '&enk=' + encodeURIComponent(v5);
+
+    document.location.href = url;
+      }
+      
+    </script>
+    <script type="text/javascript">
       $(function(){
-        $('[data-toggle="tooltip"]').tooltip({html: true});
+        $('[data-toggle="tooltip"]').tooltip({
+
+            html: true,
+            animation: false //workaround. bug will fixed in next bootstrap release
+
+        });
       });
     </script>
   </body>

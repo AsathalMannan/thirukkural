@@ -12,7 +12,7 @@ html {
 }
 
 header{
-	height: 20em;
+	height: 1em;
 	width: 100%;
 	background: #ff4242;
 	background: -moz-linear-gradient(45deg, #ff4242 0%, #f47ac9 100%);
@@ -28,7 +28,7 @@ header{
 }
 
 header h1{
-	padding-top: 50% !important;
+	padding-top: 15% !important;
 	/*bottom: 50% !important;*/
 /*	margin-left: 50% !important;
 	right: 50% !important;*/
@@ -48,11 +48,11 @@ header h1{
 }
 
 .nav-arrow{
-	font-size: 24px !important;
+	font-size: 20px !important;
 }
 
 section{
-	margin-top: 21em;
+	margin-top: 4em;
     font-family: 'Hind Madurai', sans-serif;
 }
 
