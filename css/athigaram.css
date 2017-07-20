@@ -59,3 +59,18 @@ section{
 section h6{
 	font-weight: 600;
 }
+
+.translit{
+	padding-top: 0px !important;
+	margin-top: 0px !important;
+	font-size: 14px;
+}
+
+.card > .card-block > .col_left > p{
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+
+.col_left{
+	border-right: 1px solid #333;
+}

@@ -32,7 +32,7 @@
 
     <div class="collapse navbar-collapse" id="navContent">
     <ul class="navbar-nav mr-auto">
-        <li><a class="nav-link nav-arrow" href="#"><i class="fa fa-arrow-left " aria-hidden="true"></i> Back</a></li>
+        <li><a class="nav-link nav-arrow" href="index.html"><i class="fa fa-arrow-left " aria-hidden="true"></i> Back</a></li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -127,17 +127,30 @@
         var card = document.createElement('div');
             card.setAttribute("class","card col-12 mb-4");
         var cblock = document.createElement('div');
-            cblock.setAttribute("class","card-block");
+            cblock.setAttribute("class","card-block row");
+        var col_left = document.createElement('div');
+            col_left.setAttribute("class","col_left col-6");
+        var col_right = document.createElement('div');
+            col_right.setAttribute("class","col-6 pull-right");
         var title = document.createElement('h4');
             title.setAttribute("class","card-title");
         var kural1 = document.createElement('p');
             kural1.setAttribute("class","card-text");
         var kural2 = document.createElement('p');
             kural2.setAttribute("class","card-text");
-        var kural1_lit = document.createElement('p');
-            kural1_lit.setAttribute("class","text-muted");
-        var kural2_lit = document.createElement('p');
-            kural2_lit.setAttribute("class","text-sm text-muted");
+        var kural1_lit = document.createElement('small');
+            kural1_lit.setAttribute("class","text-muted translit");
+        var kural2_lit = document.createElement('small');
+            kural2_lit.setAttribute("class","translit text-muted");
+        var eng = document.createElement('p');
+            eng.setAttribute("class","card-text");
+        var mv = document.createElement('p');
+            mv.setAttribute("class","card-text text-justify");
+        var sp = document.createElement('p');
+            sp.setAttribute("class","card-text text-justify");
+        var mk = document.createElement('p');
+            mk.setAttribute("class","card-text text-justify");
+
 
         
         // title.appendChild(document.createTextNode(""));
@@ -145,12 +158,24 @@
         kural2.appendChild(document.createTextNode(jsonObj.kural[kural].Line2));
         kural1_lit.appendChild(document.createTextNode(jsonObj.kural[kural].transliteration1));
         kural2_lit.appendChild(document.createTextNode(jsonObj.kural[kural].transliteration2));
+        eng.appendChild(document.createTextNode("English:"+jsonObj.kural[kural].Translation));
 
-        cblock.appendChild(title);
-        cblock.appendChild(kural1);
-        cblock.appendChild(kural1_lit);
-        cblock.appendChild(kural2);
-        cblock.appendChild(kural2_lit);
+        mv.appendChild(document.createTextNode("மு.வ உரை: "+jsonObj.kural[kural].mv));
+        sp.appendChild(document.createTextNode("சாலமன் பாப்பையா உரை: "+jsonObj.kural[kural].sp));
+        mk.appendChild(document.createTextNode("கலைஞர் உரை: "+jsonObj.kural[kural].mk));
+
+        col_left.appendChild(title);
+        col_left.appendChild(kural1);
+        col_left.appendChild(kural1_lit);
+        col_left.appendChild(kural2);
+        col_left.appendChild(kural2_lit);
+        col_left.appendChild(eng);
+        cblock.appendChild(col_left);
+
+        col_right.appendChild(mv);
+        col_right.appendChild(sp);
+        col_right.appendChild(mk);
+        cblock.appendChild(col_right);
 
         card.appendChild(cblock);
         index.appendChild(card);
