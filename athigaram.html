@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Thirukkural</title>
+    <title></title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -18,7 +18,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col"></div>
-        <div class="col"><h1 id="athi"></h1></div>
+        <div class="col"><h1 id="athi" class="text-nowrap"></h1></div>
         <div class="col"></div>
       </div>
     </div>
@@ -54,7 +54,12 @@
   <section>
   <div class="container">
     <div class="row" id="index">
-      <h6 class="col-12 text-center">Hover text to view Transliteration</h6>
+      <div class="col-12">
+        <div class="row">
+          <div id="idpaal" class="col-6 text-right"><strong>பால்: </strong></div>
+          <div id="idiyal" class="col-6 text-left"><strong>இயல்: </strong></div>
+        </div>
+      </div>
       <!-- <div>FIRST PAAL</div> -->
 
     </div>
@@ -113,70 +118,102 @@
         // var paal = jsonObj[0].section.detail;
         
         var id_head = document.getElementById("athi");
-        var neww = "";
+        var id_paal = document.getElementById("idpaal");
+        var id_iyal = document.getElementById("idiyal");
+        // var neww = "";
           
         // Set its contents:
         id_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].name));
+        id_paal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
+        id_iyal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].name));
+
+
 
         // Add it to the list:
         // index.appendChild(list);
       }
 
       function getKural(jsonObj){
-        for (var kural = stk; kural <= enk; kural++) {
+        for (var kural = stk-1; kural < enk; kural++) {
         var card = document.createElement('div');
             card.setAttribute("class","card col-12 mb-4");
         var cblock = document.createElement('div');
-            cblock.setAttribute("class","card-block row");
+            cblock.setAttribute("class","card-block");
         var col_left = document.createElement('div');
             col_left.setAttribute("class","col_left col-6");
         var col_right = document.createElement('div');
             col_right.setAttribute("class","col-6 pull-right");
         var title = document.createElement('h4');
-            title.setAttribute("class","card-title");
+            title.setAttribute("class","card-title text-center");
+        var row = document.createElement('div');
+            row.setAttribute("class","row");
         var kural1 = document.createElement('p');
-            kural1.setAttribute("class","card-text");
+            kural1.setAttribute("class","card-text kural");
         var kural2 = document.createElement('p');
-            kural2.setAttribute("class","card-text");
+            kural2.setAttribute("class","card-text kural");
         var kural1_lit = document.createElement('small');
             kural1_lit.setAttribute("class","text-muted translit");
         var kural2_lit = document.createElement('small');
-            kural2_lit.setAttribute("class","translit text-muted");
+            kural2_lit.setAttribute("class","translit text-muted mb-4");
+        var trans_block = document.createElement('div');
+            trans_block.setAttribute("class","trans_block");
         var eng = document.createElement('p');
             eng.setAttribute("class","card-text");
+        var eng_n = document.createElement('strong');
+            eng_n.setAttribute("class","d-block");
         var mv = document.createElement('p');
             mv.setAttribute("class","card-text text-justify");
+        var mv_n = document.createElement('strong');
+            mv_n.setAttribute("class","");
         var sp = document.createElement('p');
             sp.setAttribute("class","card-text text-justify");
+        var sp_n = document.createElement('strong');
+            sp_n.setAttribute("class","");
         var mk = document.createElement('p');
             mk.setAttribute("class","card-text text-justify");
+        var mk_n = document.createElement('strong');
+            mk_n.setAttribute("class","");
 
 
         
-        // title.appendChild(document.createTextNode(""));
+        title.appendChild(document.createTextNode(jsonObj.kural[kural].Number));
         kural1.appendChild(document.createTextNode(jsonObj.kural[kural].Line1));
         kural2.appendChild(document.createTextNode(jsonObj.kural[kural].Line2));
         kural1_lit.appendChild(document.createTextNode(jsonObj.kural[kural].transliteration1));
         kural2_lit.appendChild(document.createTextNode(jsonObj.kural[kural].transliteration2));
-        eng.appendChild(document.createTextNode("English:"+jsonObj.kural[kural].Translation));
+        eng_n.appendChild(document.createTextNode("English: "));
+        eng.appendChild(eng_n);
+        eng.appendChild(document.createTextNode(jsonObj.kural[kural].Translation));
+        trans_block.appendChild(eng);
 
-        mv.appendChild(document.createTextNode("மு.வ உரை: "+jsonObj.kural[kural].mv));
-        sp.appendChild(document.createTextNode("சாலமன் பாப்பையா உரை: "+jsonObj.kural[kural].sp));
-        mk.appendChild(document.createTextNode("கலைஞர் உரை: "+jsonObj.kural[kural].mk));
+        
+        mv_n.appendChild(document.createTextNode("மு.வ உரை: "));
+        mv.appendChild(mv_n);
+        mv.appendChild(document.createTextNode(jsonObj.kural[kural].mv));
+        
+        sp_n.appendChild(document.createTextNode("சாலமன் பாப்பையா உரை: "));
+        sp.appendChild(sp_n);
+        sp.appendChild(document.createTextNode(jsonObj.kural[kural].sp));
 
-        col_left.appendChild(title);
+        mk_n.appendChild(document.createTextNode("கலைஞர் உரை: "));
+        mk.appendChild(mk_n);
+        mk.appendChild(document.createTextNode(jsonObj.kural[kural].mk));
+
+        cblock.appendChild(title);
         col_left.appendChild(kural1);
         col_left.appendChild(kural1_lit);
         col_left.appendChild(kural2);
         col_left.appendChild(kural2_lit);
-        col_left.appendChild(eng);
-        cblock.appendChild(col_left);
+        col_left.appendChild(trans_block);
+        row.appendChild(col_left);
 
         col_right.appendChild(mv);
         col_right.appendChild(sp);
         col_right.appendChild(mk);
-        cblock.appendChild(col_right);
 
+        row.appendChild(col_right);
+
+        cblock.appendChild(row);
         card.appendChild(cblock);
         index.appendChild(card);
       }

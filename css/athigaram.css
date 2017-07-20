@@ -66,11 +66,15 @@ section h6{
 	font-size: 14px;
 }
 
-.card > .card-block > .col_left > p{
+.card > .card-block > .row > .col_left > .kural{
 	font-weight: 600;
-	margin-bottom: 0px;
+	margin-bottom: 0px !important;
 }
 
 .col_left{
-	border-right: 1px solid #333;
+	border-right: 1px solid #ddd;
+}
+
+.trans_block{
+	margin-top: 2em !important;
 }
