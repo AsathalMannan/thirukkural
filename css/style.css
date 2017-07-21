@@ -59,14 +59,9 @@ header h1{
 	cursor: pointer;
 }
 
-.paal-head{
+.paal-head, .paal-head:link, .paal-head:hover{
 	background: #222;
 	color: white;
-}
-
-.paal-head:hover{
-	background: #222 !important;
-	color: white !important;
 }
 
 section{
