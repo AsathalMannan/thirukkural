@@ -40,6 +40,18 @@ header h1{
 }
 	/*vertical-align: middle;*/
 
+@media (max-width: 575px){
+	header{
+		height: 2em;
+		margin-bottom: .5rem;
+	}	
+	header h1{
+		padding-top: 25% !important;
+		font-size: 1.5rem !important;
+	}
+
+}
+
 @media (max-width: 767px){
 	header{
 		height: 1em;

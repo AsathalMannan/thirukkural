@@ -33,16 +33,16 @@
     <div class="collapse navbar-collapse" id="navContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> <span></span></a>
+          <a class="nav-link disabled" href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> <span></span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="https://github.com/AsathalMannan/thirukkural"><i class="fa fa-github" aria-hidden="true"></i> <span></span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+        <li class="nav-item active">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#modal1"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-bug" aria-hidden="true"></i></a>
+          <a class="nav-link disabled" href="#"><i class="fa fa-bug" aria-hidden="true"></i></a>
         </li>
       </ul>
     </div>
@@ -68,6 +68,35 @@
       </div>
     </div>
   </footer> -->
+
+  <!-- Modal -->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1lable" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal1lable">About</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row bg-faded mb-4">
+              <img class="img col-4" src="img/pro-pic.jpg" height="140px" alt="Thumbnail image">
+              <p class="col-6">Designed and maintained by<br>
+              <strong>Ajmal Hussain Hy</strong><br>
+              <small>B.E / Computer Science</small><BR>
+              <small>Chennai</small><br>
+              <a href="https://github.com/AsathalMannan">Profile</a></p>
+            </div>
+            <p class="text-justify">Thirukkural Web Application V2 - This application included along with English Translation, Transliteration and Explanation from Mu. Varadarajan, Prof. Salaman Paappayya, Kalaignar M. Karunanidhi. The Database is designed by <a href="https://github.com/tk120404/">Arjun Kumar</a>.</p>
+            
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
     
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
