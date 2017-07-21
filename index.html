@@ -72,8 +72,18 @@
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script type='application/javascript' src='js/fastclick.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    //attach fastclick to body
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    </script>
 
     <script type="text/javascript">
       var index = document.getElementById('index');
@@ -96,26 +106,22 @@
         for (var h = 0; h < paal.length; h++) {
 
         var paal_head = document.createElement('a');
-            paal_head.setAttribute("class", "text-center col-4 paal-head");
+            paal_head.setAttribute("class", "text-center col-sm-12 col-md-4 col-lg-4 col-xl-4 paal-head");
             paal_head.setAttribute("data-toggle", "collapse");
             paal_head.setAttribute("href", "#id"+h);
             paal_head.setAttribute("aria-expanded", "false");
             paal_head.setAttribute("aria-controls", "id"+h);
         paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
 
-          
-        // var paal_head = document.createElement('div');
-        //     paal_head.setAttribute("class", "col-4");
-        //     paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
-        var extra = document.createElement('div');
-            extra.setAttribute("class", "col-4");
+        // var extra = document.createElement('div');
+        //     extra.setAttribute("class", "col-auto");
 
         var collap = document.createElement('div');
-            collap.setAttribute("class", "collapse show col-auto");
+            collap.setAttribute("class", "collapse show col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-4");
             collap.setAttribute("id", "id"+h);
 
         var list = document.createElement('div');
-            list.setAttribute("class", "list-group col-auto");
+            list.setAttribute("class", "list-group col-sm-12 ml-2");
             // list.setAttribute("id", "id"+h);
         
         var arathu = jsonObj[0].section.detail[h].chapterGroup.detail;
@@ -169,8 +175,8 @@
         list.appendChild(item);
         collap.appendChild(list);
         index.appendChild(paal_head);
-        extra.appendChild(collap);
-        index2.appendChild(extra);
+        // extra.appendChild(collap);
+        index2.appendChild(collap);
           }
         }
          // return list;
