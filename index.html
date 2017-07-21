@@ -105,28 +105,53 @@
         var z=0;
         for (var h = 0; h < paal.length; h++) {
 
-        var paal_head = document.createElement('a');
-            paal_head.setAttribute("class", "text-center col-sm-12 col-md-4 col-lg-4 col-xl-4 paal-head");
-            paal_head.setAttribute("data-toggle", "collapse");
-            paal_head.setAttribute("href", "#id"+h);
-            paal_head.setAttribute("aria-expanded", "false");
-            paal_head.setAttribute("aria-controls", "id"+h);
-        paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
+        // var paal_head = document.createElement('a');
+        //     paal_head.setAttribute("class", "text-center col-sm-12 col-md-4 col-lg-4 col-xl-4 paal-head");
+        //     paal_head.setAttribute("data-toggle", "collapse");
+        //     paal_head.setAttribute("href", "#id"+h);
+        //     paal_head.setAttribute("aria-expanded", "false");
+        //     paal_head.setAttribute("aria-controls", "id"+h);
+        // paal_head.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
 
         // var extra = document.createElement('div');
         //     extra.setAttribute("class", "col-auto");
 
         var collap = document.createElement('div');
-            collap.setAttribute("class", "collapse show col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-4");
+            collap.setAttribute("class", "collapse show ");
             collap.setAttribute("id", "id"+h);
 
         var list = document.createElement('div');
-            list.setAttribute("class", "list-group col-sm-12 ml-2");
+            list.setAttribute("class", "list-group col-sm-12 col-md-4 col-lg-4 col-xl-4");
             // list.setAttribute("id", "id"+h);
         
         var arathu = jsonObj[0].section.detail[h].chapterGroup.detail;
-        
 
+        var i=0,j=0;
+
+        if (i==0 && j==0) {
+
+        var list1 = document.createElement('div');
+            list1.setAttribute("class", "list-group col-sm-12 ml-2");
+
+        var item1 = document.createElement('a');
+            item1.setAttribute("class", "list-group-item flex-column align-items-start paal-head");
+            item1.setAttribute("data-toggle", "collapse");
+            item1.setAttribute("href", "#id"+h);
+            item1.setAttribute("aria-expanded", "false");
+            item1.setAttribute("aria-controls", "id"+h);
+
+        var column1 = document.createElement('div');
+            column1.setAttribute("class", "d-flex w-100 justify-content-between");
+
+        var column_head1 = document.createElement('h6');
+            column_head1.setAttribute("class", "mb-1");
+            
+          column_head1.appendChild(document.createTextNode(jsonObj[0].section.detail[h].name));
+          column1.appendChild(column_head1);
+          item1.appendChild(column1);
+          list.appendChild(item1);
+        }
+        
         for (var i = 0; i < arathu.length; i++) {
           var athigaram = jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail;
           for (var j = 0; j < athigaram.length; j++) {
@@ -136,10 +161,12 @@
         var enk = jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].end;
 
         var dummy = "postvar('"+h+"','"+i+"','"+j+"','"+stk+"','"+enk+"');";
+
+
+
         var item = document.createElement('a');
             item.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start");
             item.setAttribute("onClick", dummy);
-            // item.setAttribute("href", "javascript:void(0)");
 
         var column = document.createElement('div');
             column.setAttribute("class", "d-flex w-100 justify-content-between");
@@ -160,6 +187,10 @@
 
         var trans_iyal = document.createElement('small');
           
+
+
+
+
         // Set its contents:
         column_head.appendChild(document.createTextNode(z + ". " +jsonObj[0].section.detail[h].chapterGroup.detail[i].chapters.detail[j].name));
         iyal.appendChild(document.createTextNode(jsonObj[0].section.detail[h].chapterGroup.detail[i].name));
@@ -172,11 +203,11 @@
         item.appendChild(column);
         item.appendChild(trans_head);
         // list.appendChild(paal_head);
-        list.appendChild(item);
-        collap.appendChild(list);
-        index.appendChild(paal_head);
-        // extra.appendChild(collap);
-        index2.appendChild(collap);
+        // list.appendChild(item);
+        collap.appendChild(item);
+        // index.appendChild(paal_head);
+        list.appendChild(collap);
+        index2.appendChild(list);
           }
         }
          // return list;

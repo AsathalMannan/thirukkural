@@ -60,8 +60,13 @@ header h1{
 }
 
 .paal-head{
-	text-decoration: none;
-	color: black;
+	background: #222;
+	color: white;
+}
+
+.paal-head:hover{
+	background: #222 !important;
+	color: white !important;
 }
 
 section{
