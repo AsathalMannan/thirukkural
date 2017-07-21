@@ -59,9 +59,41 @@ header h1{
 	cursor: pointer;
 }
 
+.collapse .list-group-item:first-child {
+	border-top-right-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+}
+
 .paal-head, .paal-head:link, .paal-head:hover{
 	background: #222;
 	color: white;
+}
+
+@media (max-width: 575px){
+	.marginb-sm{
+		margin-bottom: 1.5rem !important;
+	}
+	.margin-sm{
+		margin-left: 1rem !important;
+	}
+}
+
+@media (min-width: 575px){
+	.marginb-sm{
+		margin-bottom: 1.5rem !important;
+	}
+	.margin-sm{
+		margin-left: 1rem !important;
+	}
+}
+
+@media (min-width: 768px){
+	.marginb-sm{
+		margin-bottom: 1.5rem !important;
+	}
+	.margin-sm{
+		margin-left: 1rem !important;
+	}
 }
 
 section{

@@ -54,7 +54,7 @@
       <h6 class="col-12 text-center">Hover text to view Transliteration</h6>
       <!-- <div>FIRST PAAL</div> -->
     </div>
-    <div class="row" id="index2">
+    <div class="row mb-4" id="index2">
       
     </div>
   </div>
@@ -110,7 +110,7 @@
             collap.setAttribute("id", "id"+h);
 
         var list = document.createElement('div');
-            list.setAttribute("class", "list-group col-sm-12 col-md-4 col-lg-4 col-xl-4");
+            list.setAttribute("class", "list-group col-sm-12 col-md-4 col-lg-4 col-xl-4 margin-sm marginb-sm");
             // list.setAttribute("id", "id"+h);
         
         var arathu = jsonObj[0].section.detail[h].chapterGroup.detail;
@@ -119,8 +119,8 @@
 
         if (i==0 && j==0) {
 
-        var list1 = document.createElement('div');
-            list1.setAttribute("class", "list-group col-sm-12 ml-2");
+        // var list1 = document.createElement('div');
+        //     list1.setAttribute("class", "list-group col-sm-12 ml-2");
 
         var item1 = document.createElement('a');
             item1.setAttribute("class", "list-group-item flex-column align-items-start paal-head");

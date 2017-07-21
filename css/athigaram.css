@@ -71,6 +71,10 @@ footer{
 	color: white;
 }
 
+.collapse .list-group-item:first-child {
+	border-top-right-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+}
 
 .translit{
 	padding-top: 0px !important;
