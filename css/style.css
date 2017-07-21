@@ -78,13 +78,13 @@ header h1{
 	}
 }
 
-@media (min-width: 575px){
+@media (min-width: 576px){
 	.marginb-sm{
 		margin-bottom: 1.5rem !important;
 	}
-	.margin-sm{
+/* 	.margin-sm{
 		margin-left: 1rem !important;
-	}
+	} */
 }
 
 @media (min-width: 768px){
@@ -92,7 +92,7 @@ header h1{
 		margin-bottom: 1.5rem !important;
 	}
 	.margin-sm{
-		margin-left: 1rem !important;
+		/*! margin-left: 1rem !important; */
 	}
 }
 
