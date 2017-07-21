@@ -38,7 +38,18 @@ header h1{
 	right: 50% !important;*/
 /*	display: table-cell;*/
 }
-	vertical-align: middle;
+	/*vertical-align: middle;*/
+
+@media (max-width: 767px){
+	header{
+		height: 4em;
+	}	
+	header h1{
+		padding-top: 40% !important;
+		font-size: 1.5rem !important;
+	}
+
+}
 
 .navcustom{
 	/*position: fixed;*/
@@ -78,15 +89,43 @@ footer{
 }
 
 
-.card > .card-block > .row > .col_left > .kural{
+.card > .card-block > .row > .col_border > .kural{
 	font-weight: 600;
 	margin-bottom: 0px !important;
 }
 
-.col_left{
+.col_border{
 	border-right: 1px solid #ddd;
+}
+
+/*@media (max-width: 575px){
+	.col_border{
+		border-bottom: 1px solid #ddd;
+	}
+}
+
+@media (min-width: 576px){
+	.col_border{
+		border-bottom: 1px solid #ddd;
+	}
+}*/
+@media (max-width: 767px){
+	.col_border{
+		border-right: 0px solid #ddd !important;
+		border-bottom: 1px solid #ddd;
+
+		margin-bottom: 1rem;
+	}	
+
 }
 
 .trans_block{
 	margin-top: 2em !important;
+}
+
+@media (max-width: 767px){
+	.trans_block{
+		margin-bottom: 1rem;
+	}	
+	
 }

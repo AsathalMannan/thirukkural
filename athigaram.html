@@ -155,13 +155,13 @@
       function getKural(jsonObj){
         for (var kural = stk-1; kural < enk; kural++) {
         var card = document.createElement('div');
-            card.setAttribute("class","card col-12 mb-4");
+            card.setAttribute("class","card col-12 ml-auto mr-auto mb-4");
         var cblock = document.createElement('div');
             cblock.setAttribute("class","card-block");
         var col_left = document.createElement('div');
-            col_left.setAttribute("class","col_left col-6");
+            col_left.setAttribute("class","col_border col-sm-12 col-md-6 col-lg-6 col-xl-6 no-gutters");
         var col_right = document.createElement('div');
-            col_right.setAttribute("class","col-6 pull-right");
+            col_right.setAttribute("class","col-sm-12 col-md-6 col-lg-6 col-xl-6 pull-right");
         var title = document.createElement('h4');
             title.setAttribute("class","card-title text-center");
         var row = document.createElement('div');
