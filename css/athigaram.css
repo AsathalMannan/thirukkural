@@ -32,7 +32,7 @@ header{
 }
 
 header h1{
-	padding-top: 15% !important;
+	padding-top: 5% !important;
 	/*bottom: 50% !important;*/
 /*	margin-left: 50% !important;
 	right: 50% !important;*/
@@ -42,10 +42,11 @@ header h1{
 
 @media (max-width: 767px){
 	header{
-		height: 4em;
+		height: 1em;
+		margin-bottom: .5rem;
 	}	
 	header h1{
-		padding-top: 40% !important;
+		padding-top: 20% !important;
 		font-size: 1.5rem !important;
 	}
 
@@ -96,6 +97,13 @@ footer{
 
 .col_border{
 	border-right: 1px solid #ddd;
+}
+
+@media (max-width: 400px){
+	.kural, p{
+		font-size: 12px;
+	}
+
 }
 
 /*@media (max-width: 575px){
